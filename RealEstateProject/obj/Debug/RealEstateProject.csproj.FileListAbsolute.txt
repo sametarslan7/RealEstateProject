@@ -118,3 +118,6 @@ C:\Users\user\Desktop\RealEstateProject\RealEstateProject\obj\Debug\RealEstatePr
 C:\Users\user\Desktop\RealEstateProject\RealEstateProject\obj\Debug\RealEstateProject.csproj.CopyComplete
 C:\Users\user\Desktop\RealEstateProject\RealEstateProject\obj\Debug\RealEstateProject.dll
 C:\Users\user\Desktop\RealEstateProject\RealEstateProject\obj\Debug\RealEstateProject.pdb
+C:\Users\user\Desktop\RealEstateProject\RealEstateProject\obj\Debug\RealEstateProject.Migrations.MigrationName.resources
+C:\Users\user\Desktop\RealEstateProject\RealEstateProject\obj\Debug\RealEstateProject.csproj.GenerateResource.cache
+C:\Users\user\Desktop\RealEstateProject\RealEstateProject\obj\Debug\RealEstateProject.Migrations.UpdateDatabaseModel.resources

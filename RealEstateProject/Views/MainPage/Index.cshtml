@@ -1,0 +1,251 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real Estate Website</title>
+    <link rel="stylesheet" href="~/estate/style.css">
+
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <ul>
+            <li><a href="#" class="active">Home</a></li>
+            <li><a href="project.html">Projects</a></li>
+            <li><a href="#listings">Listings</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Projects Section -->
+    <section id="projects-section" class="section projects-section">
+        <div class="projects-background">
+            <div class="projects-slider">
+                @Html.Action("Project","MainPage")
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Search Section -->
+    <section class="search-area">
+        <input style="width:300px;" type="text" placeholder="Search Listings">
+        <select>
+            <option value="sale">For Sale</option>
+            <option value="rent">For Rent</option>
+        </select>
+        <select>
+            <option value="villa">Villa</option>
+            <option value="apartment">Apartment</option>
+            <option value="residence">Residence</option>
+            <option value="land">Land</option>
+        </select>
+        <button>Search</button>
+    </section>
+
+    <!-- Listings Section -->
+    <section class="listings" id="listings">
+        <h2>Featured Listings</h2> <!-- Başlık Eklendi -->
+        <!-- Tablo Başlıkları -->
+        <table class="listing-table">
+            <thead>
+                <tr>
+                    <th>Image</th>
+                    <th>Title</th>
+                    <th>Type</th>
+                    <th>Status</th>
+                    <th>Location</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Listing 1 -->
+                <tr class="listing-item"
+                    data-title="Real Estate for Sale on Manhattan"
+                    data-images='["../../estate/imgs/real_estate.jpeg", "../../estate/imgs/real_estate2.jpg", "../../estate/imgs/real_estate3.jpg"]'
+                    data-price="$1,500,000"
+                    data-year="2023"
+                    data-city="Manhattan"
+                    data-district="New York"
+                    data-status="For Sale"
+                    data-type="Real Estate"
+                    data-description="sale description for real estate on manhattan">
+                    <td><img src="../../estate/imgs/real_estate.jpeg" alt="Listing Image" class="listing-image" onclick="openOverlay(this)"></td>
+                    <td>Real Estate for Sale on Manhattan</td>
+                    <td>Real Estate</td>
+                    <td>For Sale</td>
+                    <td>Manhattan</td>
+                    <td>$1,500,000</td>
+                </tr>
+                <!-- Listing 2 -->
+                <tr class="listing-item"
+                    data-title="Residence for Rent on Brooklyn"
+                    data-images='["../../estate/imgs/residence.jpg", "../../estate/imgs/residence2.jpg", "../../estate/imgs/residence3.jpg"]'
+                    data-price="$2,500/month"
+                    data-year="2022"
+                    data-city="Brooklyn"
+                    data-district="New York"
+                    data-status="For Rent"
+                    data-type="Residence"
+                    data-description="rent description for residence on brooklyn">
+                    <td><img src="../../estate/imgs/residence.jpg" alt="Listing Image" class="listing-image" onclick="openOverlay(this)"></td>
+                    <td>Residence for Rent on Brooklyn</td>
+                    <td>Residence</td>
+                    <td>For Rent</td>
+                    <td>Brooklyn</td>
+                    <td>$2,500/month</td>
+                </tr>
+                <!-- Listing 3 -->
+                <tr class="listing-item"
+                    data-title="Land for Sale on Queens"
+                    data-images='["../../estate/imgs/land.jpg", "../../estate/imgs/land2.jpg", "../../estate/imgs/land3.jpg"]'
+                    data-price="$750,000"
+                    data-year="2021"
+                    data-city="Queens"
+                    data-district="New York"
+                    data-status="For Sale"
+                    data-type="Land"
+                    data-description="Sale description for land on Queens">
+                    <td><img src="../../estate/imgs/land.jpg" alt="Listing Image" class="listing-image" onclick="openOverlay(this)"></td>
+                    <td>Land for Sale on Queens</td>
+                    <td>Land</td>
+                    <td>For Sale</td>
+                    <td>Queens</td>
+                    <td>$750,000</td>
+                </tr>
+                <tr class="listing-item"
+                    data-title="Residence for Rent on Brooklyn"
+                    data-images='["../../estate/imgs/residence.jpg", "../../estate/imgs/residence2.jpg", "../../estate/imgs/residence3.jpg"]'
+                    data-price="$2,500/month"
+                    data-year="2022"
+                    data-city="Brooklyn"
+                    data-district="New York"
+                    data-status="For Rent"
+                    data-type="Residence"
+                    data-description="rent description for residence on brooklyn">
+                    <td><img src="../../estate/imgs/residence.jpg" alt="Listing Image" class="listing-image" onclick="openOverlay(this)"></td>
+                    <td>Residence for Rent on Brooklyn</td>
+                    <td>Residence</td>
+                    <td>For Rent</td>
+                    <td>Brooklyn</td>
+                    <td>$2,500/month</td>
+                </tr>
+                <tr class="listing-item"
+                    data-title="Residence for Rent on Brooklyn"
+                    data-images='["../../estate/imgs/residence.jpg", "../../estate/imgs/residence2.jpg", "../../estate/imgs/residence3.jpg"]'
+                    data-price="$2,500/month"
+                    data-year="2022"
+                    data-city="Brooklyn"
+                    data-district="New York"
+                    data-status="For Rent"
+                    data-type="Residence"
+                    data-description="rent description for residence on brooklyn">
+                    <td><img src="../../estate/imgs/residence.jpg" alt="Listing Image" class="listing-image" onclick="openOverlay(this)"></td>
+                    <td>Residence for Rent on Brooklyn</td>
+                    <td>Residence</td>
+                    <td>For Rent</td>
+                    <td>Brooklyn</td>
+                    <td>$2,500/month</td>
+                </tr>
+                <tr class="listing-item"
+                    data-title="Residence for Rent on Brooklyn"
+                    data-images='["../../estate/imgs/residence.jpg", "../../estate/imgs/residence2.jpg", "../../estate/imgs/residence3.jpg"]'
+                    data-price="$2,500/month"
+                    data-year="2022"
+                    data-city="Brooklyn"
+                    data-district="New York"
+                    data-status="For Rent"
+                    data-type="Residence"
+                    data-description="rent description for residence on brooklyn">
+                    <td><img src="../../estate/imgs/residence.jpg" alt="Listing Image" class="listing-image" onclick="openOverlay(this)"></td>
+                    <td>Residence for Rent on Brooklyn</td>
+                    <td>Residence</td>
+                    <td>For Rent</td>
+                    <td>Brooklyn</td>
+                    <td>$2,500/month</td>
+                </tr>
+                <tr class="listing-item"
+                    data-title="Residence for Rent on Brooklyn"
+                    data-images='["../../estate/imgs/residence.jpg", "../../estate/imgs/residence2.jpg", "../../estate/imgs/residence3.jpg"]'
+                    data-price="$2,500/month"
+                    data-year="2022"
+                    data-city="Brooklyn"
+                    data-district="New York"
+                    data-status="For Rent"
+                    data-type="Residence"
+                    data-description="rent description for residence on brooklyn">
+                    <td><img src="../../estate/imgs/residence.jpg" alt="Listing Image" class="listing-image" onclick="openOverlay(this)"></td>
+                    <td>Residence for Rent on Brooklyn</td>
+                    <td>Residence</td>
+                    <td>For Rent</td>
+                    <td>Brooklyn</td>
+                    <td>$2,500/month</td>
+                </tr>
+
+
+            </tbody>
+        </table>
+        <!-- Navigation Arrows -->
+        <div class="navigation-arrows">
+            <button class="arrow left-arrow" onclick="previousListing()">&#10094;</button>
+            <button class="arrow right-arrow" onclick="nextListing()">&#10095;</button>
+        </div>
+    </section>
+
+    <!-- Overlay Section -->
+    <div id="overlay" class="overlay">
+        <div class="overlay-content">
+            <span class="closebtn" onclick="closeOverlay()">&times;</span>
+            <div class="overlay-left">
+                <img id="overlay-img" src="" alt="Listing Image">
+            </div>
+            <div class="button-container">
+                <button class="prev" onclick="changeImage(-1)">&#10094;</button>
+                <button class="next" onclick="changeImage(1)">&#10095;</button>
+            </div>
+            <div class="overlay-right">
+                <p class="overlay-title"><strong id="overlay-title"></strong></p>
+                <p><strong>Price: </strong><span id="overlay-price"></span></p>
+                <p><strong>Year: </strong><span id="overlay-year"></span></p>
+                <p><strong>City: </strong><span id="overlay-city"></span></p>
+                <p><strong>District: </strong><span id="overlay-district"></span></p>
+                <p><strong>Status: </strong><span id="overlay-status"></span></p>
+                <p><strong>Type: </strong><span id="overlay-type"></span></p>
+                <p class="overlay-description"><span id="overlay-description"></span></p>
+                <button>Contact</button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Contact Section -->
+    <section class="contact">
+        <div class="office-addresses">
+            <h3>Offices</h3>
+            <p>New York Office: 123 Main Street, NY</p>
+            <p>Los Angeles Office: 456 Sunset Blvd, LA</p>
+            <p>Chicago Office: 789 Lake Shore Drive, Chicago</p>
+        </div>
+        <div class="contact-info">
+            <h3>Contact Us</h3>
+            <p>Email: info@realestate.com</p>
+            <p>Phone: +1 234 567 890</p>
+            <p>Fax: +1 987 654 321</p>
+        </div>
+        <div class="company-logo">
+            <img src="../../estate/imgs/logo.jpg" alt="Company Logo">
+        </div>
+    </section>
+    <script src="~/estate/overlay.js"></script>
+    <script src="~/estate/project.js"></script>
+    <script src="~/estate/pagination.js"></script>
+</body>
+
+</html>

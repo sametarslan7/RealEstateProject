@@ -10,7 +10,7 @@ namespace RealEstateProject.Models.Classes
     {
         [Key]
         public int officeId { get; set; }
-        public string officeCountry { get; set; }
+        public string officeCity { get; set; }
         public string officeFullAdress { get; set; }
     }
 }

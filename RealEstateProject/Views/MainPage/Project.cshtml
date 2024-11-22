@@ -1,0 +1,12 @@
+﻿@using RealEstateProject.Models.Classes
+@model List<Project>
+
+
+@foreach (var x in Model)
+{
+    <div class="project-info" style="background-image: url('@x.projectImageUrl');">
+        <div class="project-content">
+            <h3 class="project-title">@x.projectTitle</h3>
+        </div>
+    </div>
+}
