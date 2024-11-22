@@ -1,0 +1,13 @@
+﻿@using RealEstateProject.Models.Classes
+@model List<Contact>
+
+
+@foreach (var y in Model)
+{
+    <div class="contact-info">
+        <h3>Contact Us</h3>
+        <p>Email: @y.emailAdress</p>
+        <p>Phone: @y.phoneNumber</p>
+        <p>Fax: @y.faxNumber</p>
+    </div>
+}

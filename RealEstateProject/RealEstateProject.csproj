@@ -127,8 +127,10 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MainPageController.cs" />
+    <Compile Include="Controllers\ProjectController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -226,6 +228,12 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\MainPage\Index.cshtml" />
     <Content Include="Views\MainPage\Project.cshtml" />
+    <Content Include="Views\MainPage\Contact.cshtml" />
+    <Content Include="Views\MainPage\Office.cshtml" />
+    <Content Include="Views\Project\Index.cshtml" />
+    <Content Include="Views\Contact\Index.cshtml" />
+    <Content Include="Views\Contact\Contact.cshtml" />
+    <Content Include="Views\Contact\Office.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

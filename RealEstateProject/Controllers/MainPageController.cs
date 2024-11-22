@@ -21,5 +21,15 @@ namespace RealEstateProject.Controllers
             var value = c.Projects.ToList();
             return PartialView(value);
         }
+        public PartialViewResult Contact()
+        {
+            var value=c.Contacts.ToList();
+            return PartialView(value);
+        }
+        public PartialViewResult Office() 
+        {
+            var value=c.Offices.ToList();
+            return PartialView(value);
+        }
     }
 }

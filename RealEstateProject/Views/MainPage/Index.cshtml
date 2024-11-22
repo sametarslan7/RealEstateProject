@@ -17,7 +17,7 @@
     <nav class="navbar">
         <ul>
             <li><a href="#" class="active">Home</a></li>
-            <li><a href="project.html">Projects</a></li>
+            <li><a href="/Project/Index">Projects</a></li>
             <li><a href="#listings">Listings</a></li>
             <li><a href="contact.html">Contact</a></li>
         </ul>
@@ -227,18 +227,8 @@
 
     <!-- Contact Section -->
     <section class="contact">
-        <div class="office-addresses">
-            <h3>Offices</h3>
-            <p>New York Office: 123 Main Street, NY</p>
-            <p>Los Angeles Office: 456 Sunset Blvd, LA</p>
-            <p>Chicago Office: 789 Lake Shore Drive, Chicago</p>
-        </div>
-        <div class="contact-info">
-            <h3>Contact Us</h3>
-            <p>Email: info@realestate.com</p>
-            <p>Phone: +1 234 567 890</p>
-            <p>Fax: +1 987 654 321</p>
-        </div>
+        @Html.Action("Office","MainPage")
+        @Html.Action("Contact","MainPage")
         <div class="company-logo">
             <img src="../../estate/imgs/logo.jpg" alt="Company Logo">
         </div>

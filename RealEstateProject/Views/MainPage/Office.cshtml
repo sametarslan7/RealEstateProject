@@ -1,0 +1,15 @@
+﻿@using RealEstateProject.Models.Classes
+@model List<Office>
+
+
+<div class="office-addresses">
+    <h3>Offices</h3>
+    @foreach (var x in Model)
+    {
+
+        <p>@x.officeFullAdress , @x.officeCity</p>
+
+    }
+</div>
+
+

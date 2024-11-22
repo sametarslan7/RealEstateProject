@@ -50,7 +50,8 @@ h2 {
     display: flex;
     justify-content: space-between;
     padding: 40px;
-    margin: 20px auto;
+    margin: 50px auto;
+    margin-top:150px;
     max-width: 1200px;
 }
 

@@ -1,0 +1,17 @@
+﻿@using RealEstateProject.Models.Classes
+@model List<Office>
+
+<h2>Our Offices</h2>
+
+@foreach (var x in Model)
+{
+    <!-- Office 1: New York -->
+    <div class="office">
+        <h3>@x.officeCity</h3>
+        <ul>
+            <li>@x.officeFullAdress</li>
+        </ul>
+    </div>
+}
+
+
