@@ -1,0 +1,34 @@
+﻿@using RealEstateProject.Models.Classes
+@model List<BuildViewModel>
+
+
+@foreach (var x in Model)
+{
+
+    var images = string.Join(",", x.Images.Select(image => $"'{image.imageUrl}'"));
+
+    <tr class="listing-item"
+        data-title="@x.Build.buildTitle"
+        data-images='@Newtonsoft.Json.JsonConvert.SerializeObject(x.Images.Select(p => p.imageUrl))'
+        data-price="$ @x.Build.buildPrice"
+        data-year="@x.Build.buildYear"
+        data-city="@x.Build.buildCity"
+        data-district="@x.Build.buildDistrict"
+        data-status="@x.Build.buildStatus"
+        data-type="@x.BuildTypeName"
+        data-gallery="@String.Join(",",x.Images.Select(p=>p.imageUrl))"
+        data-description="@x.Build.buildDescription">
+        <td>
+            <img src="@(x.Images.FirstOrDefault()?.imageUrl ?? "default-image-url.jpg")"
+                 alt="@x.Build.buildTitle"
+                 class="listing-image"
+                 onclick="openOverlay(this)">
+        </td>
+
+        <td>@x.Build.buildTitle</td>
+        <td>@x.BuildTypeName</td>
+        <td>@x.Build.buildStatus</td>
+        <td>@x.Build.buildCity</td>
+        <td>$ @x.Build.buildPrice</td>
+    </tr>
+}

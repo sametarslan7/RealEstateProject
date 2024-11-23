@@ -31,5 +31,21 @@ namespace RealEstateProject.Controllers
             var value=c.Offices.ToList();
             return PartialView(value);
         }
+        public PartialViewResult Listing(string buildtype)
+        {
+            var buildsQuery = c.Builds
+                .Include(c => c.buildType)
+                .Include(c => c.Images)
+                .AsQueryable();
+            var builds=buildsQuery.ToList();
+
+            var buildViewModels = builds.Select(build => new BuildViewModel
+            {
+                Build=build,
+                BuildTypeName=build.buildType.buildType,
+                Images=build.Images.ToList(),
+            }).ToList();
+            return PartialView(buildViewModels);
+        }
     }
 }
