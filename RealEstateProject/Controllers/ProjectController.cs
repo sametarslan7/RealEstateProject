@@ -16,5 +16,20 @@ namespace RealEstateProject.Controllers
         {
             return View();
         }
+        public ActionResult GetProject(int id)
+        {
+            var project = c.Projects.FirstOrDefault(p => p.projectId == id);
+            if (project == null)
+            {
+                return HttpNotFound(); // Eğer proje bulunamazsa hata döndür
+            }
+            return View("GetProject", project);
+        }
+
+        public PartialViewResult Project()
+        {
+            var value=c.Projects.ToList();
+            return PartialView(value);
+        }
     }
 }

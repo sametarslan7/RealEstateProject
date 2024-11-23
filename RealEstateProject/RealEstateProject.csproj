@@ -235,6 +235,8 @@
     <Content Include="Views\Contact\Contact.cshtml" />
     <Content Include="Views\Contact\Office.cshtml" />
     <Content Include="Views\MainPage\Listing.cshtml" />
+    <Content Include="Views\Project\GetProject.cshtml" />
+    <Content Include="Views\Project\Project.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
