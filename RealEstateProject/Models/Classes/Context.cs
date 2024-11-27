@@ -14,7 +14,8 @@ namespace RealEstateProject.Models.Classes
         public DbSet<Contact> Contacts { get; set; }
         public DbSet<Office> Offices { get; set; }
         public DbSet<Project> Projects { get; set; }
-
+        public DbSet<Admin> Admins { get; set; }
+        public DbSet<Message> Messages { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -27,9 +28,9 @@ namespace RealEstateProject.Models.Classes
 
             //build-buildtype one to many relationship
             modelBuilder .Entity<Build>()
-                .HasRequired(p => p.buildType)
+                .HasRequired(c => c.buildType)
                 .WithMany(f => f.Builds)
-                .HasForeignKey(p => p.buildTypeId);
+                .HasForeignKey(c => c.buildTypeId);
         }
 
     }

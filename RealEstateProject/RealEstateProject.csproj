@@ -127,6 +127,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MainPageController.cs" />
@@ -142,18 +143,40 @@
     <Compile Include="Migrations\202411221120038_UpdateDatabaseModel.designer.cs">
       <DependentUpon>202411221120038_UpdateDatabaseModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202411270540122_NewTables.cs" />
+    <Compile Include="Migrations\202411270540122_NewTables.designer.cs">
+      <DependentUpon>202411270540122_NewTables.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Classes\Admin.cs" />
     <Compile Include="Models\Classes\Build.cs" />
     <Compile Include="Models\Classes\BuildType.cs" />
     <Compile Include="Models\Classes\BuildViewModel.cs" />
     <Compile Include="Models\Classes\Contact.cs" />
     <Compile Include="Models\Classes\Context.cs" />
     <Compile Include="Models\Classes\Image.cs" />
+    <Compile Include="Models\Classes\Message.cs" />
     <Compile Include="Models\Classes\Office.cs" />
     <Compile Include="Models\Classes\Project.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="adminpanel\admin.css" />
+    <Content Include="adminpanel\admin.html" />
+    <Content Include="adminpanel\admins.html" />
+    <Content Include="adminpanel\builds.html" />
+    <Content Include="adminpanel\buildtypes.html" />
+    <Content Include="adminpanel\contacts.html" />
+    <Content Include="adminpanel\images.html" />
+    <Content Include="adminpanel\new\newadmin.html" />
+    <Content Include="adminpanel\new\newbuild.html" />
+    <Content Include="adminpanel\new\newbuildtype.html" />
+    <Content Include="adminpanel\new\newcontact.html" />
+    <Content Include="adminpanel\new\newoffice.html" />
+    <Content Include="adminpanel\new\newproject.html" />
+    <Content Include="adminpanel\offices.html" />
+    <Content Include="adminpanel\projects.html" />
+    <Content Include="adminpanel\styles.css" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-grid.rtl.css" />
@@ -237,6 +260,15 @@
     <Content Include="Views\MainPage\Listing.cshtml" />
     <Content Include="Views\Project\GetProject.cshtml" />
     <Content Include="Views\Project\Project.cshtml" />
+    <Content Include="Views\Shared\_AdminLayout.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Admin\BuildTypeList.cshtml" />
+    <Content Include="Views\Admin\AdminList.cshtml" />
+    <Content Include="Views\Admin\OfficeList.cshtml" />
+    <Content Include="Views\Admin\Project.cshtml" />
+    <Content Include="Views\Admin\ContactList.cshtml" />
+    <Content Include="Views\Admin\MessageList.cshtml" />
+    <Content Include="Views\Admin\BuildList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -274,6 +306,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202411221120038_UpdateDatabaseModel.resx">
       <DependentUpon>202411221120038_UpdateDatabaseModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202411270540122_NewTables.resx">
+      <DependentUpon>202411270540122_NewTables.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

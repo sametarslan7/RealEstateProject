@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Images</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <div class="admin-panel">
+        <!-- Left SideBar -->
+        <nav class="sidebar">
+            <h2>Admin Panel</h2>
+            <ul>
+                <li><a href="#contacts">Website</a></li>
+                <li><a href="admins.html">Admins</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="builds.html">Builds</a></li>
+                <li><a href="buildtypes.html">BuildTypes</a></li>
+                <li><a href="images.html">Images</a></li>
+                <li><a href="offices.html">Offices</a></li>
+                <li><a href="contacts.html">Contact</a></li>
+                <li><a href="#">Quit</a></li>
+            </ul>
+        </nav>
+
+        <!-- Content -->
+        <div class="content">
+            <main>
+                <!-- Cars -->
+                <header>
+                    <h1><i class="fas fa-car"></i> Images</h1>
+                </header>
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">ID</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Photos</th>
+                                <th scope="col">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Example Data Entries -->
+                            <tr>
+                                <td>1</td>
+                                <td>Model S</td>
+                                <td>
+                                    <div class="photos-container">
+                                        <img src="car1.jpg" alt="Car Photo" width="100" height="100">
+                                        <img src="car2.jpg" alt="Car Photo" width="100" height="100">
+                                        <img src="car3.jpg" alt="Car Photo" width="100" height="100">
+                                    </div>
+                                </td>
+                                <td>
+                                    <button class="btn btn-warning btn-sm">
+                                        <i class="fas fa-edit"></i> Update
+                                    </button>
+                                    <button class="btn btn-danger btn-sm">
+                                        <i class="fas fa-trash"></i> Delete
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Civic</td>
+                                <td>
+                                    <div class="photos-container">
+                                        <img src="chevrolet.png" alt="Car Photo" width="100" height="100">
+                                        <img src="audi_r8.jpg" alt="Car Photo" width="100" height="100">
+                                    </div>
+                                </td>
+                                <td>
+                                    <button class="btn btn-warning btn-sm">
+                                        <i class="fas fa-edit"></i> Update
+                                    </button>
+                                    <button class="btn btn-danger btn-sm">
+                                        <i class="fas fa-trash"></i> Delete
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- Add New Car -->
+                <div class="addnewbutton">
+                    <a class="btn btn-info" href="new/newcar.html">
+                        Add New Car
+                    </a>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <style>
+        .photos-container img {
+            margin-right: 5px;
+            border-radius: 3px;
+        }
+    </style>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

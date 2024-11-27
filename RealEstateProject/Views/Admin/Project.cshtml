@@ -1,0 +1,55 @@
+﻿@using RealEstateProject.Models.Classes
+@model List<Project>
+@{
+    ViewBag.Title = "Project";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<main>
+    <!-- Cars -->
+    <header>
+        <h1><i class="fas fa-bullhorn"></i> Projects</h1>
+
+    </header>
+    <div class="table-responsive">
+        <table class="table table-striped table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Project Title</th>
+                    <th scope="col">Project Description</th>
+                    <th scope="col">Image Url</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Example Data Entries -->
+                @foreach (var x in Model)
+                {
+                    <tr>
+                        <td>@x.projectId</td>
+                        <td>@x.projectTitle</td>
+                        <td>@x.projectDescription</td>
+                        <td>@x.projectImageUrl</td>
+                        <td>
+                            <button class="btn btn-warning btn-sm">
+                                <i class="fas fa-edit"></i> Update
+                            </button>
+                            <button class="btn btn-danger btn-sm">
+                                <i class="fas fa-trash"></i> Delete
+                            </button>
+                        </td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+    </div>
+    <!-- Add New Car  -->
+    <div class="addnewbutton">
+        <a class="btn btn-info" href="new/newproject.html">
+            Add New Project
+        </a>
+    </div>
+</main>
+
+

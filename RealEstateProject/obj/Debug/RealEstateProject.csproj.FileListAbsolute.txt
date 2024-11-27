@@ -121,3 +121,4 @@ C:\Users\user\Desktop\RealEstateProject\RealEstateProject\obj\Debug\RealEstatePr
 C:\Users\user\Desktop\RealEstateProject\RealEstateProject\obj\Debug\RealEstateProject.Migrations.MigrationName.resources
 C:\Users\user\Desktop\RealEstateProject\RealEstateProject\obj\Debug\RealEstateProject.csproj.GenerateResource.cache
 C:\Users\user\Desktop\RealEstateProject\RealEstateProject\obj\Debug\RealEstateProject.Migrations.UpdateDatabaseModel.resources
+C:\Users\user\Desktop\RealEstateProject\RealEstateProject\obj\Debug\RealEstateProject.Migrations.NewTables.resources
