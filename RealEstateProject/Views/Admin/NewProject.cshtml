@@ -1,0 +1,38 @@
+﻿@model RealEstateProject.Models.Classes.Project
+@{
+    ViewBag.Title = "NewProject";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<main>
+    <header>
+        <h1><i class="fas fa-bullhorn"></i> New Project</h1>
+    </header>
+
+    <div class="container">
+        <form method="post">
+            <div class="form-group">
+                <label for="projectTitle">Title</label>
+                @Html.TextBoxFor(x => x.projectTitle, new { @class = "form-control", @placeholder = "Enter project title", @id = "projectTitle" })
+                @*<input type="text" class="form-control" id="projectTitle" placeholder="Enter project title" required>*@
+            </div>
+            <div class="form-group">
+                <label for="projectDescription">Description</label>
+                @Html.TextBoxFor(x => x.projectDescription, new { @class = "form-control", @placeholder = "Enter project description", @id = "projectDescription" })
+                @*<input type="text" class="form-control" id="projectDescription" placeholder="Enter project description" required>*@
+            </div>
+
+            @*<div class="form-group">
+                <label for="projectImage">Upload Photo</label>
+                @Html.TextBoxFor(x => x.projectTitle, new { @class = "form-control", @placeholder = "Enter project title", @id = "projectTitle" })
+                <input type="file" class="form-control" id="projectImage" multiple accept="image/*" required>
+            </div>*@
+
+            <div class="form-group">
+                <label for="projectImages">Upload Image</label>
+                <input type="file" name="Files" multiple />
+            </div>
+            <button type="submit" class="btn btn-primary">Add Project</button>
+        </form>
+    </div>
+</main>

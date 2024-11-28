@@ -1,0 +1,60 @@
+﻿@model RealEstateProject.Models.Classes.Build
+@{
+    ViewBag.Title = "NewBuild";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<main>
+    <header>
+        <h1><i class="fas fa-building"></i> New Build </h1>
+    </header>
+
+    <div class="container">
+        <form action="/Admin/NewBuild" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="buildTitle">Title</label>
+                @Html.TextBoxFor(x => x.buildTitle, new { @class = "form-control", @id = "buildTitle", @placeholder = "Enter build title" })
+                @*<input type="text" class="form-control" id="buildTitle" placeholder="Enter build title " required>*@
+            </div>
+            <div class="form-group">
+                <label for="buildPrice">Price</label>
+                @Html.TextBoxFor(x => x.buildPrice, new { @class = "form-control", @id = "buildPrice", @placeholder = "Enter price" })
+                @*<input type="number" class="form-control" id="buildPrice" placeholder="Enter price" required>*@
+            </div>
+            <div class="form-group">
+                <label for="buildYear">Year</label>
+                @Html.TextBoxFor(x => x.buildYear, new { @class = "form-control", @id = "buildYear", @placeholder = "Enter construction year " })
+                @*<input type="number" class="form-control" id="buildYear" placeholder="Enter year of construction" required>*@
+            </div>
+            <div class="form-group">
+                <label for="buildCity">City</label>
+                @Html.TextBoxFor(x => x.buildCity, new { @class = "form-control", @id = "buildCity", @placeholder = "Enter build city" })
+                @*<input type="text" class="form-control" id="buildCity" placeholder="Enter city" required>*@
+            </div>
+            <div class="form-group">
+                <label for="buildDistrict">District</label>
+                @Html.TextBoxFor(x => x.buildDistrict, new { @class = "form-control", @id = "buildDistrict", @placeholder = "Enter build district" })
+                @*<input type="text" class="form-control" id="buildDistrict" placeholder="Enter cistrict" required>*@
+            </div>
+            <div class="form-group">
+                <label for="buildStatus">Status</label>
+                @Html.TextBoxFor(x => x.buildStatus, new { @class = "form-control", @id = "buildStatus", @placeholder = "Enter status (rent/sale)" })
+            </div>
+            <div class="form-group">
+                <label for="buildType">Build Type</label>
+                @Html.DropDownListFor(x => x.buildTypeId, new SelectList(ViewBag.BuildTypes, "Value", "Text"), "Select a build type", new { @class = "form-control", @id = "buildType", required = "required" })
+            </div>
+            <div class="form-group">
+                <label for="buildImages">Upload Images</label>
+                <input type="file" id="buildImages" name="Files" multiple />
+            </div>
+
+            <div class="form-group">
+                <label for="buildDescription">Description</label>
+                @Html.TextBoxFor(x => x.buildDescription, new { @class = "form-control", @id = "buildDescription", @placeholder = "Enter build description" })
+                @*<input type="text" class="form-control" id="buildDescription" placeholder="Enter Build's Description" required>*@
+            </div>
+            <button type="submit" class="btn btn-primary">Add Build</button>
+        </form>
+    </div>
+</main>

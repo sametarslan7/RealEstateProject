@@ -1,4 +1,4 @@
-﻿
+﻿@model RealEstateProject.Models.Classes.Message
 @{
     Layout = null;
 }
@@ -35,15 +35,21 @@
         <!-- Right: Contact Form -->
         <section class="contact-form">
             <h2>Get in Touch</h2>
-            <form>
+            <form method="post">
                 <label for="name">Full Name</label>
-                <input type="text" id="name" placeholder="Enter your full name" required>
+                @Html.TextBoxFor(x => x.fullName, new { @class = "form-control", @id = "name", @placeholder = "Enter your full name" })
+                @*<input type="text" id="name" placeholder="Enter your full name" required>*@
 
                 <label for="phone">Phone Number</label>
-                <input type="tel" id="phone" placeholder="Enter your phone number" required>
+                @Html.TextBoxFor(x => x.phoneNumber, new { @class = "form-control", @id = "phone", @placeholder = "Enter your phone number " })
+                @*<input type="tel" id="phone" placeholder="Enter your phone number" required>*@
+
+                <label for="email">E-Mail</label>
+                @Html.TextAreaFor(x => x.email, new { @class = "form-control", @id = "enail", @placeholder = "Enter your email adress" })
 
                 <label for="message">Message</label>
-                <textarea id="message" placeholder="Write your message here" rows="5" required></textarea>
+                @Html.TextAreaFor(x => x.message, new { @class = "form-control", @id = "message", @placeholder = "Enter your message " ,@row="4",@column="30"})
+                @*<textarea id="message" placeholder="Write your message here" rows="5" required></textarea>*@
 
                 <button type="submit">Send Message</button>
             </form>

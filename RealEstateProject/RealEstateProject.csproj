@@ -269,9 +269,17 @@
     <Content Include="Views\Admin\ContactList.cshtml" />
     <Content Include="Views\Admin\MessageList.cshtml" />
     <Content Include="Views\Admin\BuildList.cshtml" />
+    <Content Include="Views\Admin\NewBuildType.cshtml" />
+    <Content Include="Views\Admin\NewOffice.cshtml" />
+    <Content Include="Views\Admin\NewProject.cshtml" />
+    <Content Include="Views\Admin\NewAdmin.cshtml" />
+    <Content Include="Views\Admin\NewBuild.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="images\builds\" />
+    <Folder Include="images\projects\" />
+    <Folder Include="Uploads\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />

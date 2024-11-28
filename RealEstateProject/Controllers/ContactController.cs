@@ -12,9 +12,17 @@ namespace RealEstateProject.Controllers
     {
         Context c=new Context();
         // GET: Contact
+        [HttpGet]
         public ActionResult Index()
         {
             return View();
+        }
+        [HttpPost]
+        public ActionResult Index(Message m)
+        {
+            c.Messages.Add(m);
+            c.SaveChanges();
+            return RedirectToAction("Index");
         }
         public PartialViewResult Office()
         {
