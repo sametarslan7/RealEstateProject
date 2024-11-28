@@ -1,0 +1,31 @@
+﻿@model RealEstateProject.Models.Classes.BuildType
+@{
+    ViewBag.Title = "GetBuildType";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@using (Html.BeginForm("UpdateBuildType", "Admin", FormMethod.Post))
+{
+
+    <main>
+        <header>
+            <h1><i class="fas fa-home"></i> New Build Type</h1>
+        </header>
+
+        <div class="container">
+            <form method="post">
+                <div class="form-group">
+                    <label for="buildTypeid">ID</label>
+                    @Html.TextBoxFor(x => x.buildTypeid, new { @class = "form-control", @id = "buildTypeid",@readonly="readonly"  })
+                    @*<input type="text" class="form-control" id="buildType" placeholder="Enter build type" required>*@
+                </div>
+                <div class="form-group">
+                    <label for="buildType">Build Type</label>
+                    @Html.TextBoxFor(x => x.buildType, new { @class = "form-control", @id = "buildType", @placeholder = "Enter build type" })
+                    @*<input type="text" class="form-control" id="buildType" placeholder="Enter build type" required>*@
+                </div>
+                <button type="submit" class="btn btn-primary">Update Build Type</button>
+            </form>
+        </div>
+    </main>
+}

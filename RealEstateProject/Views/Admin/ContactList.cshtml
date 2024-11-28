@@ -31,23 +31,14 @@
                         <td>@x.phoneNumber</td>
                         <td>@x.faxNumber</td>
                         <td>
-                            <button class="btn btn-warning btn-sm">
+                            <a href="/Admin/GetContact/@x.contactId" class="btn btn-warning btn-sm">
                                 <i class="fas fa-edit"></i> Update
-                            </button>
-                            <button class="btn btn-danger btn-sm">
-                                <i class="fas fa-trash"></i> Delete
-                            </button>
+                            </a>
                         </td>
                     </tr>
                 }
 
             </tbody>
         </table>
-    </div>
-    <!-- Update Contact Info -->
-    <div class="addnewbutton">
-        <a class="btn btn-info" href="new/newcontact.html">
-            Update Contact Info
-        </a>
     </div>
 </main>

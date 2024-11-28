@@ -30,12 +30,12 @@
                         <td>@x.officeCity</td>
                         <td>@x.officeFullAdress</td>
                         <td>
-                            <button class="btn btn-warning btn-sm">
+                            <a href="/Admin/GetOffice/@x.officeId" class="btn btn-warning btn-sm">
                                 <i class="fas fa-edit"></i> Update
-                            </button>
-                            <button class="btn btn-danger btn-sm">
+                            </a>
+                            <a href="/Admin/DeleteOffice/@x.officeId" class="btn btn-danger btn-sm">
                                 <i class="fas fa-trash"></i> Delete
-                            </button>
+                            </a>
                         </td>
                     </tr>
                 }

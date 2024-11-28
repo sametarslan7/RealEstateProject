@@ -1,0 +1,37 @@
+﻿@model RealEstateProject.Models.Classes.Office
+@{
+    ViewBag.Title = "GetOffice";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@using (Html.BeginForm("UpdateOffice", "Admin", FormMethod.Post))
+{
+
+    <main>
+        <header>
+            <h1><i class="fas fa-briefcase"></i> New Office</h1>
+        </header>
+
+        <div class="container">
+            <form method="post">
+                <div class="form-group">
+                    <label for="officeId">ID</label>
+                    @Html.TextBoxFor(x => x.officeId, new { @class = "form-control", @id = "\"", @readonly = "readonly" })
+                    @*<input type="text" class="form-control" id="officeCity" placeholder="Enter office city" required>*@
+                </div>
+                <div class="form-group">
+                    <label for="officeCity">City</label>
+                    @Html.TextBoxFor(x => x.officeCity, new { @class = "form-control", @id = "officeCity", @placeholder = "Enter office City" })
+                    @*<input type="text" class="form-control" id="officeCity" placeholder="Enter office city" required>*@
+                </div>
+                <div class="form-group">
+                    <label for="officeFullAdress">Full Adress</label>
+                    @Html.TextBoxFor(x => x.officeFullAdress, new { @class = "form-control", @id = "officeFullAdress", @placeholder = "Enter office full adress" })
+                    @*<input class="form-control" id="officeFullAdress" rows="3" placeholder="Enter office full adress" required></input>
+            </div>*@
+                    <br />
+                    <button type="submit" class="btn btn-primary">Update Office</button>
+            </form>
+        </div>
+    </main>
+}

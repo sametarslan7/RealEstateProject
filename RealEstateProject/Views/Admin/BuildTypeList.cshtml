@@ -29,12 +29,12 @@
                         <td>@x.buildTypeid</td>
                         <td>@x.buildType</td>
                         <td>
-                            <button class="btn btn-warning btn-sm">
+                            <a href="/Admin/GetBuildType/@x.buildTypeid" class="btn btn-warning btn-sm">
                                 <i class="fas fa-edit"></i> Update
-                            </button>
-                            <button class="btn btn-danger btn-sm">
+                            </a>
+                            <a href="/Admin/DeleteAdmin/@x.buildTypeid" class="btn btn-danger btn-sm">
                                 <i class="fas fa-trash"></i> Delete
-                            </button>
+                            </a>
                         </td>
                     </tr>
                 }

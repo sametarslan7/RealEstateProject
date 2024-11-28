@@ -31,12 +31,12 @@
                         <td>@x.projectDescription</td>
                         <td>@x.projectImageUrl</td>
                         <td>
-                            <button class="btn btn-warning btn-sm">
+                            <a href="/Admin/GetProject/@x.projectId" class="btn btn-warning btn-sm">
                                 <i class="fas fa-edit"></i> Update
-                            </button>
-                            <button class="btn btn-danger btn-sm">
+                            </a>
+                            <a href="/Admin/DeleteProject/@x.projectId" class="btn btn-danger btn-sm">
                                 <i class="fas fa-trash"></i> Delete
-                            </button>
+                            </a>
                         </td>
                     </tr>
                 }

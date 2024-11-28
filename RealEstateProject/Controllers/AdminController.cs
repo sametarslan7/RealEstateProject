@@ -35,6 +35,23 @@ namespace RealEstateProject.Controllers
             c.SaveChanges();
             return RedirectToAction("AdminList");
         }
+        public ActionResult GetAdmin(int id)
+        {
+            var adm=c.Admins.Find(id);
+            return View("GetAdmin",adm);
+        }
+        public ActionResult UpdateAdmin(Admin ad)
+        {
+            var update_admin = c.Admins.Find(ad.Id);
+            update_admin.name = ad.name;
+            update_admin.surname = ad.surname;
+            update_admin.email = ad.email;
+            update_admin.nickanme = ad.nickanme;
+            update_admin.password = ad.password;
+
+            c.SaveChanges();
+            return RedirectToAction("AdminList");
+        }
         // ----- BUILDTYPE -----
         public ActionResult BuildTypeList()
         {
@@ -53,6 +70,19 @@ namespace RealEstateProject.Controllers
             c.SaveChanges();
             return RedirectToAction("BuildTypeList");
         }
+        public ActionResult GetBuildType(int id)
+        {
+            var buildtype=c.BuildTypes.Find(id);
+            return View("GetBuildType", buildtype);
+        }
+        public ActionResult UpdateBuildType(BuildType bt)
+        {
+            var update_buildtype = c.BuildTypes.Find(bt.buildTypeid);
+
+            update_buildtype.buildType = bt.buildType;
+            c.SaveChanges();
+            return RedirectToAction("BuildTypeList");
+        }
         // ----- OFFICE -----
         public ActionResult OfficeList()
         {
@@ -68,6 +98,20 @@ namespace RealEstateProject.Controllers
         public ActionResult NewOffice(Office o) 
         {
             c.Offices.Add(o);
+            c.SaveChanges();
+            return RedirectToAction("OfficeList");
+        }
+        public ActionResult GetOffice(int id)
+        {
+            var ofc=c.Offices.Find(id);
+            return View("GetOffice", ofc);
+        }
+        public ActionResult UpdateOffice(Office o)
+        {
+            var update_office = c.Offices.Find(o.officeId);
+
+            update_office.officeCity = o.officeCity;
+            update_office.officeFullAdress = o.officeFullAdress;
             c.SaveChanges();
             return RedirectToAction("OfficeList");
         }
@@ -147,6 +191,21 @@ namespace RealEstateProject.Controllers
         {
             var value=c.Contacts.ToList();
             return View(value);
+        }
+        public ActionResult GetContact(int id)
+        {
+            var cnt = c.Contacts.Find(id);
+            return View("GetContact", cnt);
+        }
+        public ActionResult UpdateContact(Contact cont)
+        {
+            var update_contact = c.Contacts.Find(cont.contactId);
+
+            update_contact.emailAdress= cont.emailAdress;
+            update_contact.phoneNumber= cont.phoneNumber;
+            update_contact.faxNumber= cont.faxNumber;
+            c.SaveChanges();
+            return RedirectToAction("ContactList");
         }
         // ----- MESSAGE -----
         public ActionResult MessageList()
