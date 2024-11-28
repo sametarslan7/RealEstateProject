@@ -228,5 +228,22 @@ namespace RealEstateProject.Controllers
             return RedirectToAction("BuildList", "Admin");
         }
 
+        // ----- IMAGES ------
+        public ActionResult ImageList()
+        {
+            var buildsQuery = c.Builds
+                .Include(c => c.Images)
+                .AsQueryable();
+            var builds = buildsQuery.ToList();
+
+            var buildViewModels = builds.Select(build => new BuildViewModel
+            {
+                Build = build,
+                Images = build.Images.ToList(),
+            }).ToList();
+
+            return View(buildViewModels);
+        }
+
     }
 }

@@ -274,6 +274,7 @@
     <Content Include="Views\Admin\NewProject.cshtml" />
     <Content Include="Views\Admin\NewAdmin.cshtml" />
     <Content Include="Views\Admin\NewBuild.cshtml" />
+    <Content Include="Views\Admin\ImageList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
