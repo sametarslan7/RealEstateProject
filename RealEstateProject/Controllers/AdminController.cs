@@ -52,6 +52,15 @@ namespace RealEstateProject.Controllers
             c.SaveChanges();
             return RedirectToAction("AdminList");
         }
+        public ActionResult DeleteAdmin(int id)
+        {
+            var dlt = c.Admins.Find(id);
+            c.Admins.Remove(dlt);
+
+            c.SaveChanges();
+            return RedirectToAction("AdminList");
+
+        }
         // ----- BUILDTYPE -----
         public ActionResult BuildTypeList()
         {
@@ -80,6 +89,14 @@ namespace RealEstateProject.Controllers
             var update_buildtype = c.BuildTypes.Find(bt.buildTypeid);
 
             update_buildtype.buildType = bt.buildType;
+            c.SaveChanges();
+            return RedirectToAction("BuildTypeList");
+        }
+        public ActionResult DeleteBuildType(int id)
+        {
+            var dlt=c.BuildTypes.Find(id);
+            c.BuildTypes.Remove(dlt);
+
             c.SaveChanges();
             return RedirectToAction("BuildTypeList");
         }
@@ -112,6 +129,14 @@ namespace RealEstateProject.Controllers
 
             update_office.officeCity = o.officeCity;
             update_office.officeFullAdress = o.officeFullAdress;
+            c.SaveChanges();
+            return RedirectToAction("OfficeList");
+        }
+        public ActionResult DeleteOffice(int id)
+        {
+            var dlt = c.Offices.Find(id);
+            c.Offices.Remove(dlt);
+
             c.SaveChanges();
             return RedirectToAction("OfficeList");
         }
@@ -302,6 +327,20 @@ namespace RealEstateProject.Controllers
             }).ToList();
 
             return View(buildViewModels);
+        }
+        public ActionResult GetImage(int id)
+        {
+            var images = c.Images.Where(p => p.BuildId == id).ToList();
+
+            return View("GetImage", images);
+        }
+        public ActionResult DeleteImage(int id)
+        {
+            var dlt = c.Images.Find(id);
+            c.Images.Remove(dlt);
+
+            c.SaveChanges();
+            return RedirectToAction("ImageList");
         }
 
     }
