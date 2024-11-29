@@ -10,7 +10,7 @@
     </header>
 
     <div class="container">
-        <form method="post">
+        <form method="post" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="projectTitle">Title</label>
                 @Html.TextBoxFor(x => x.projectTitle, new { @class = "form-control", @placeholder = "Enter project title", @id = "projectTitle" })

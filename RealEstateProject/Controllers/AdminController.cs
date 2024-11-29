@@ -6,11 +6,13 @@ using System.Web;
 using System.Web.Mvc;
 using System.Data.Entity;
 using System.IO;
+using System.Threading.Tasks;
 
 namespace RealEstateProject.Controllers
 {
     public class AdminController : Controller
     {
+
         Context c=new Context();
         // GET: Admin
         public ActionResult Index()
@@ -159,14 +161,14 @@ namespace RealEstateProject.Controllers
             {
                 try
                 {
-                    // 1. Proje bilgilerini kaydet
+                    // Proje bilgilerini kaydet
                     c.Projects.Add(p);
                     c.SaveChanges();
 
                     // Yeni eklenen projenin ID'sini al
                     var projectId = p.projectId;
 
-                    // 2. Fotoğrafları kaydetme işlemi
+                    // Fotoğrafları kaydetme işlemi
                     if (Files != null && Files.Any())
                     {
                         foreach (var file in Files)
@@ -176,6 +178,12 @@ namespace RealEstateProject.Controllers
                                 // Dosya adını al
                                 var fileName = Path.GetFileName(file.FileName);
                                 var filePath = Path.Combine(Server.MapPath("~/images/projects"), fileName);
+
+                                // Eğer dizin yoksa oluştur
+                                if (!Directory.Exists(Server.MapPath("~/images/projects")))
+                                {
+                                    Directory.CreateDirectory(Server.MapPath("~/images/projects"));
+                                }
 
                                 // Fotoğrafı sunucuya kaydet
                                 file.SaveAs(filePath);
@@ -188,7 +196,7 @@ namespace RealEstateProject.Controllers
                             }
                         }
 
-                        // Değişiklikleri kaydet
+                        // Projenin görsel URL'sini güncelle
                         c.Entry(p).State = System.Data.Entity.EntityState.Modified;
                         c.SaveChanges();
                     }
@@ -210,7 +218,47 @@ namespace RealEstateProject.Controllers
             }
         }
 
+        public ActionResult GetProject(int id)
+        {
+            var prj = c.Projects.Find(id);
+            return View("GetProject",prj);
+        }
+        [HttpPost]
+        public ActionResult UpdateProject(Project pr, HttpPostedFileBase Files)
+        {
+            var updateproject = c.Projects.Find(pr.projectId);
 
+            if (updateproject != null)
+            {
+                // Diğer alanları güncelle
+                updateproject.projectDescription = pr.projectDescription;
+                updateproject.projectTitle = pr.projectTitle;
+
+                // Yeni bir resim dosyası seçilmişse işle
+                if (Files != null && Files.ContentLength > 0)
+                {
+                    // Dosya adını belirle ve dosyayı sunucuda kaydet
+                    string fileName = Path.GetFileName(Files.FileName);
+                    string path = Path.Combine(Server.MapPath("~/Images/Projects"), fileName);
+                    Files.SaveAs(path);
+
+                    // Yeni dosya URL'sini güncelle
+                    updateproject.projectImageUrl = "/Images/Projects/" + fileName;
+                }
+                // Eğer yeni dosya seçilmediyse mevcut URL'yi koru (hiçbir işlem yapma)
+            }
+
+            // Veritabanı değişikliklerini kaydet
+            c.SaveChanges();
+            return RedirectToAction("Project");
+        }
+        public ActionResult DeleteProject(int id)
+        {
+            var dlt=c.Projects.Find(id);
+            c.Projects.Remove(dlt);
+            c.SaveChanges();
+            return RedirectToAction("Project");
+        }
         // ----- CONTACT -----
         public ActionResult ContactList()
         {
@@ -380,6 +428,72 @@ namespace RealEstateProject.Controllers
 
             return View("GetImage", images);
         }
+        [HttpPost]
+        public ActionResult UpdateImage(int id, int buildId, HttpPostedFileBase newImage)
+        {
+            // Image'ı ID'ye göre bul
+            var image = c.Images.Find(id);
+
+            if (image == null)
+            {
+                return HttpNotFound();
+            }
+
+            // Eğer yeni bir resim seçilmişse, resmi güncelle
+            if (newImage != null && newImage.ContentLength > 0)
+            {
+                // Eski resmi silmek isterseniz (önceki resim)
+                string oldImagePath = Server.MapPath(image.imageUrl); // Eski resmin yolunu al
+                if (System.IO.File.Exists(oldImagePath)) // Eğer eski resim varsa
+                {
+                    System.IO.File.Delete(oldImagePath); // Eski resmi sil
+                }
+
+                // Yeni resmi kaydet
+                string newImagePath = Path.Combine(Server.MapPath("~/Uploads/"), newImage.FileName);
+                newImage.SaveAs(newImagePath);
+
+                // Yeni URL'yi güncelle
+                image.imageUrl = "/Uploads/" + newImage.FileName; // URL'yi güncelle
+            }
+
+            // BuildId'yi de güncelleyebilirsiniz, eğer gerekiyorsa
+            image.BuildId = buildId;
+
+            // Değişiklikleri kaydedin
+            c.SaveChanges();
+
+            // İlgili listeyi tekrar alıp geri dönebilirsiniz
+            return RedirectToAction("GetImage", new { id = image.BuildId });
+
+        }
+        [HttpPost]
+        public ActionResult NewImage(int buildId, HttpPostedFileBase newImage)
+        {
+            if (newImage != null && newImage.ContentLength > 0)
+            {
+                var uploadPath = Path.Combine(Server.MapPath("~/Uploads/"));
+                var fileName = Path.GetFileName(newImage.FileName);
+                var filePath = Path.Combine(uploadPath, fileName);
+
+                newImage.SaveAs(filePath);
+
+                var newImageRecord = new Image
+                {
+                    BuildId = buildId,
+                    imageUrl = "/Uploads/" + fileName
+                };
+
+                c.Images.Add(newImageRecord);
+                c.SaveChanges();
+
+                return RedirectToAction("GetImage", new { id = buildId });
+            }
+
+            return View();
+        }
+
+
         public ActionResult DeleteImage(int id)
         {
             var dlt = c.Images.Find(id);

@@ -1,0 +1,37 @@
+﻿@model RealEstateProject.Models.Classes.Project
+@{
+    ViewBag.Title = "GetProject";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@using (Html.BeginForm("UpdateProject", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <main>
+        <header>
+            <h1><i class="fas fa-bullhorn"></i> New Project</h1>
+        </header>
+
+        <div class="container">
+            <div class="form-group">
+                <label for="projectId">ID</label>
+                @Html.TextBoxFor(x => x.projectId, new { @class = "form-control", @readonly = "readonly", @id = "projectId" })
+            </div>
+            <div class="form-group">
+                <label for="projectTitle">Title</label>
+                @Html.TextBoxFor(x => x.projectTitle, new { @class = "form-control", @placeholder = "Enter project title", @id = "projectTitle" })
+            </div>
+            <div class="form-group">
+                <label for="projectDescription">Description</label>
+                @Html.TextBoxFor(x => x.projectDescription, new { @class = "form-control", @placeholder = "Enter project description", @id = "projectDescription" })
+            </div>
+            <div class="form-group">
+                <label for="projectImageUrl">Image</label><br />
+                <img src="@Model.projectImageUrl" style="width:400px;height:100px;" />
+                <div style="margin-top:50px;">
+                    <label for="projectImages">Update Image</label>
+                    <input type="file" name="Files" />
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Update Project</button>
+        </div>
+    </main>
+}
