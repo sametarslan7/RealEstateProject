@@ -255,6 +255,42 @@ namespace RealEstateProject.Controllers
             return View(buildViewModels);
 
         }
+        public ActionResult GetBuild(int id)
+        {
+            // Tüm BuildTypes listesini alıyoruz
+            var buildTypes = c.BuildTypes.ToList();
+
+            // Seçilen Build öğesini alıyoruz
+            var build = c.Builds.Find(id);
+
+            if (build != null)
+            {
+                // Seçili buildTypeId'yi ayarlıyoruz
+                ViewBag.BuildTypes = new SelectList(buildTypes, "buildTypeId", "buildType", build.buildTypeId);
+            }
+            else
+            {
+                // Eğer build bulunamazsa, boş bir liste döndürüyoruz
+                ViewBag.BuildTypes = new SelectList(buildTypes, "buildTypeId", "buildType");
+            }
+
+            return View("GetBuild", build);
+        }
+        public ActionResult UpdateBuild(Build bld)
+        {
+            var update_build = c.Builds.Find(bld.buildId);
+            update_build.buildTitle= bld.buildTitle;
+            update_build.buildDistrict= bld.buildDistrict;
+            update_build.buildPrice= bld.buildPrice;
+            update_build.buildCity= bld.buildCity;
+            update_build.buildStatus= bld.buildStatus;
+            update_build.buildDescription= bld.buildDescription;
+            update_build.buildTypeId= bld.buildTypeId;
+            update_build.buildYear= bld.buildYear;
+            c.SaveChanges();
+
+            return RedirectToAction("BuildList");
+        }
         // GET: Admin/NewBuild
         [HttpGet]
         public ActionResult NewBuild()
@@ -310,6 +346,16 @@ namespace RealEstateProject.Controllers
 
             // Başarılı ekleme sonrası geri yönlendirme
             return RedirectToAction("BuildList", "Admin");
+        }
+        public ActionResult DeleteBuild(int id)
+        {
+            var dlt = c.Builds.Find(id);
+
+            c.Builds.Remove(dlt);
+
+            c.SaveChanges();
+
+            return RedirectToAction("BuildList");
         }
 
         // ----- IMAGES ------

@@ -280,6 +280,7 @@
     <Content Include="Views\Admin\GetOffice.cshtml" />
     <Content Include="Views\Admin\GetContact.cshtml" />
     <Content Include="Views\Admin\GetImage.cshtml" />
+    <Content Include="Views\Admin\GetBuild.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

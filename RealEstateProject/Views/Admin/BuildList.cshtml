@@ -41,8 +41,11 @@
                         <td>@x.BuildTypeName</td>
                         <td>@x.Build.buildDescription</td>
                         <td>
+                            <a href="/Admin/GetImage/@x.Build.buildId" class="btn btn-primary btn-sm">
+                                <i class="fas fa-edit"></i> Update Images
+                            </a>
                             <a href="/Admin/GetBuild/@x.Build.buildId" class="btn btn-warning btn-sm">
-                                <i class="fas fa-edit"></i> Update
+                                <i class="fas fa-edit"></i> Update Informatıons
                             </a>
                             <a href="/Admin/DeleteBuild/@x.Build.buildId" class="btn btn-danger btn-sm">
                                 <i class="fas fa-trash"></i> Delete
