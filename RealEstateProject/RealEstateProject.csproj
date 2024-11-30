@@ -62,6 +62,7 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
@@ -146,6 +147,10 @@
     <Compile Include="Migrations\202411270540122_NewTables.cs" />
     <Compile Include="Migrations\202411270540122_NewTables.designer.cs">
       <DependentUpon>202411270540122_NewTables.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202411291908417_UpdateMessageTable.cs" />
+    <Compile Include="Migrations\202411291908417_UpdateMessageTable.designer.cs">
+      <DependentUpon>202411291908417_UpdateMessageTable.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Classes\Admin.cs" />
@@ -282,6 +287,7 @@
     <Content Include="Views\Admin\GetImage.cshtml" />
     <Content Include="Views\Admin\GetBuild.cshtml" />
     <Content Include="Views\Admin\GetProject.cshtml" />
+    <Content Include="Views\Admin\GetMessage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -325,6 +331,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202411270540122_NewTables.resx">
       <DependentUpon>202411270540122_NewTables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202411291908417_UpdateMessageTable.resx">
+      <DependentUpon>202411291908417_UpdateMessageTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

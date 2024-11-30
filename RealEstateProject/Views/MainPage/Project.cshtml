@@ -5,7 +5,7 @@
 @foreach (var x in Model)
 {
     <div class="project-info"
-         style="background-image: url('@x.projectImageUrl');"
+         style="background-image: url('@x.projectImageUrl');height:500px;background-repeat:no-repeat;background-size:cover;margin-bottom:10px;"
          onclick="window.location.href='@Url.Action("GetProject", "Project", new { id = x.projectId })';">
         <div class="project-content">
             <h3 class="project-title">@x.projectTitle</h3>

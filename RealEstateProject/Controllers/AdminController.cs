@@ -286,6 +286,19 @@ namespace RealEstateProject.Controllers
             var value=c.Messages.ToList();
             return View(value);
         }
+        public ActionResult GetMessage(int id)
+        {
+            var msg=c.Messages.Find(id);
+            return View("GetMessage", msg);
+        }
+        public ActionResult UpdateMessage(Message msg)
+        {
+            var update_msg=c.Messages.Find(msg.messageId);
+            
+            update_msg.messageDetail= msg.messageDetail;
+            c.SaveChanges();
+            return RedirectToAction("MessageList");
+        }
         // ----- BUILD -----
         public ActionResult BuildList(string type)
         {       

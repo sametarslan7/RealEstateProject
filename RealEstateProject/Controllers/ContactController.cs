@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Data.Entity;
 
+
 namespace RealEstateProject.Controllers
 {
     public class ContactController : Controller
@@ -20,8 +21,10 @@ namespace RealEstateProject.Controllers
         [HttpPost]
         public ActionResult Index(Message m)
         {
+            m.messageDetail = "not read";
             c.Messages.Add(m);
             c.SaveChanges();
+            
             return RedirectToAction("Index");
         }
         public PartialViewResult Office()

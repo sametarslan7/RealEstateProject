@@ -20,6 +20,7 @@
                     <th scope="col">Name</th>
                     <th scope="col">Phone Number</th>
                     <th scope="col">Message</th>
+                    <th scope="col">Message Detail</th>
                     <th scope="col">Actions</th>
                 </tr>
             </thead>
@@ -31,25 +32,17 @@
                         <td>@x.fullName</td>
                         <td>@x.phoneNumber</td>
                         <td>@x.message</td>
+                        <td>@x.messageDetail</td>
                         <td>
-                            <button class="btn btn-warning btn-sm">
+                            <a href="/Admin/GetMessage/@x.messageId" class="btn btn-warning btn-sm">
                                 <i class="fas fa-edit"></i> Update
-                            </button>
-                            <button class="btn btn-danger btn-sm">
-                                <i class="fas fa-trash"></i> Delete
-                            </button>
+                            </a>
                         </td>
                     </tr>
                 }
 
             </tbody>
         </table>
-    </div>
-    <!-- Update Contact Info -->
-    <div class="addnewbutton">
-        <a class="btn btn-info" href="new/newcontact.html">
-            Update Contact Info
-        </a>
     </div>
 </main>
 

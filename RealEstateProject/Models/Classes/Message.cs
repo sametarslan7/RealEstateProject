@@ -14,5 +14,6 @@ namespace RealEstateProject.Models.Classes
         public string phoneNumber { get; set; }
         public string email { get; set; }
         public string message { get; set; }
+        public string messageDetail { get; set; }
     }
 }
