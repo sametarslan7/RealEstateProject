@@ -131,6 +131,7 @@
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MainPageController.cs" />
     <Compile Include="Controllers\ProjectController.cs" />
     <Compile Include="Global.asax.cs">
@@ -214,6 +215,11 @@
     <Content Include="estate\imgs\residence2.jpg" />
     <Content Include="estate\imgs\residence3.jpg" />
     <Content Include="estate\index.html" />
+    <Content Include="estate\Login\estatebg.jpg" />
+    <Content Include="estate\Login\estate_bg.jpg" />
+    <Content Include="estate\Login\sign.html" />
+    <Content Include="estate\Login\sign.css" />
+    <Content Include="estate\Login\signup.css" />
     <Content Include="estate\overlay.js" />
     <Content Include="estate\pagination.js" />
     <Content Include="estate\project.css" />
@@ -288,6 +294,8 @@
     <Content Include="Views\Admin\GetBuild.cshtml" />
     <Content Include="Views\Admin\GetProject.cshtml" />
     <Content Include="Views\Admin\GetMessage.cshtml" />
+    <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\Login\Signup.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

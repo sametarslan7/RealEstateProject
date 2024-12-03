@@ -1,0 +1,57 @@
+﻿@model RealEstateProject.Models.Classes.Admin
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="~/estate/Login/sign.css">
+</head>
+<body>
+    <div class="cont">
+        <div class="sub-cont">
+            <!-- Left: Sign In -->
+            <div class="left" style="margin-right:150px;">
+                <div class="left__text">
+                    <h3>If you already have an account, just sign in.</h3>
+                </div>
+                <div class="left__btn">
+                    <button class="submit" style="width:200px;" onclick="window.location.href='/Login/Signup'">Sign Up</button>
+                </div>
+            </div>
+            <!-- Login Form -->
+            <div class="form login" style="margin-right:250px; width:500px; margin-bottom:20px;">
+                <h2>Login to Your Account</h2>
+
+                <!-- Hata Mesajı -->
+                @if (ViewBag.ErrorMessage != null)
+                {
+                    <p style="color: red; font-weight: bold;">@ViewBag.ErrorMessage</p>
+                }
+
+                <!-- Başarı Mesajı -->
+                @if (TempData["SuccessMessage"] != null)
+                {
+                    <p style="color: green; font-weight: bold;">@TempData["SuccessMessage"]</p>
+                }
+
+                <form method="post">
+                    <label>
+                        <span>Nickname</span>
+                        <input type="text" name="nickname" class="form-control" id="nickname" required />
+                    </label>
+                    <label>
+                        <span>Password</span>
+                        <input type="password" name="password" class="form-control" id="password" required />
+                    </label>
+                    <button type="submit" class="submit">Sign In</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
